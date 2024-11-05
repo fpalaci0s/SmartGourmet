@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Gourmet - Gestión Inteligente de Restaurantes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/682f53b706.js" crossorigin="anonymous"></script>
+    <link href="{% static 'css/landing.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'img/logo.jpg' %}" alt="Smart Gourmet Logo" class="logo-img">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#caracteristicas">Características</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#beneficios">Beneficios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#precios">Precios</a></li>
+                    <li class="nav-item"><a class="btn btn-primary ms-lg-3" href="#contact">Contáctanos</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección Portada -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4">Transforma las operaciones de tu resturante</h1>
+                    <p class="lead mb-4">Smart Gourmet lleva la gestión inteligente de pedidos y la optimización de la
+                        cocina a los restaurantes modernos. Agilice las operaciones, reduzca los tiempos de espera y
+                        deleite a sus clientes.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#demo" class="btn btn-primary btn-lg">Solicitar Demo</a>
+                        <a href="#aprender-mas" class="btn btn-outline-secondary btn-lg">Aprender más</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="/api/placeholder/600/400" alt="Restaurant Management Dashboard"
+                        class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seccion caracteristica -->
+    <section id="features" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Carácteristicas inteligentes para restaurantes modernos</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="text-center p-4">
+                        <i class="fas fa-utensils feature-icon"></i>
+                        <h3>Gestión de pedidos</h3>
+                        <p>Optimice el procesamiento de pedidos con colas inteligentes y gestión de prioridades.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center p-4">
+                        <i class="fas fa-clock feature-icon"></i>
+                        <h3>Análisis en tiempo real</h3>
+                        <p>Obtenga información instantánea sobre el rendimiento de la cocina y las métricas de
+                            satisfacción del cliente.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center p-4">
+                        <i class="fas fa-mobile-alt feature-icon"></i>
+                        <h3>Integración móvil</h3>
+                        <p>Administre las operaciones de su restaurante desde cualquier lugar con nuestra aplicación
+                            móvil.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seccion beneficios -->
+    <section id="benefits" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">¿Por qué elegir Smart Gourmet?</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="d-flex align-items-start">
+                        <i class="fas fa-check-circle text-success mt-1 me-3"></i>
+                        <div>
+                            <h4>Eficiencia incrementada</h4>
+                            <p>Optimice los flujos de trabajo de la cocina y reduzca los tiempos de preparación de
+                                pedidos hasta en un 30%.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="d-flex align-items-start">
+                        <i class="fas fa-check-circle text-success mt-1 me-3"></i>
+                        <div>
+                            <h4>Mejor experiencia del cliente</h4>
+                            <p>Reduzca los tiempos de espera y mejore la precisión de los pedidos con una gestión de
+                                colas inteligente.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="d-flex align-items-start">
+                        <i class="fas fa-check-circle text-success mt-1 me-3"></i>
+                        <div>
+                            <h4>Información basada en datos</h4>
+                            <p>Tome decisiones informadas con análisis detallados e informes de rendimiento.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="d-flex align-items-start">
+                        <i class="fas fa-check-circle text-success mt-1 me-3"></i>
+                        <div>
+                            <h4>Integración fácil</h4>
+                            <p>Se integra perfectamente con sus puntos de venta y de gestión de cocinas existentes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección CTA -->
+    <section class="bg-gradient-custom text-white py-5">
+        <div class="container text-center">
+            <h2 class="mb-4">Listo para optimizar tu restaurante?</h2>
+            <p class="lead mb-4">Sea el primer restaurante que ya utiliza Smart Gourmet para transformar sus
+                operaciones.</p>
+            <a href="#contact" class="btn btn-light btn-lg">Empieza hoy</a>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer class="py-4 bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2024 Smart Gourmet. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-white me-3">Políticas de privacidad</a>
+                    <a href="#" class="text-white me-3">Términos de servicio</a>
+                    <a href="#" class="text-white">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
