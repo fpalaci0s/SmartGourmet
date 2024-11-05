@@ -36,3 +36,7 @@
     background-color: var(--primary-color);
     border-color: var(--primary-color);
 }
+
+.text-custom-title {
+    color: var(--secondary-color) !important;
+}
