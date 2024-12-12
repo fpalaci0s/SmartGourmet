@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Registro de usuario</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="{% static 'plugins/icheck-bootstrap/icheck-bootstrap.min.css' %}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{% static 'css/adminlte.min.css' %}">
+</head>
+<body class="hold-transition register-page">
+<div class="register-box">
+  <div class="card card-outline card-primary">
+    <div class="card-header text-center">
+      <a href="{% url 'dashboard' %}" class="h1"><b>Smart </b>Gourmet</a>
+    </div>
+    <div class="card-body">
+      <p class="login-box-msg">Regístrate para acceder a las tablas</p>
+
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+
+      <form action="{% url 'signup' %}" method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        
+        <div class="form-group mb-3">
+          <label for="username">Nombre de usuario</label>
+          <input type="text" name="username" id="username" class="form-control" placeholder="Nombre de usuario" required>
+        </div>
+        
+        <div class="form-group mb-3">
+          <label for="email">Email</label>
+          <input type="email" name="email" class="form-control" placeholder="Email" required>
+        </div>
+        
+        <div class="form-group mb-3">
+          <label for="password1">Contraseña</label>
+          <input type="password" name="password1" class="form-control" placeholder="Contraseña" required>
+        </div>
+        
+        <div class="form-group mb-3">
+          <label for="password2">Reescribe la contraseña</label>
+          <input type="password" name="password2" class="form-control" placeholder="Reescribe la contraseña" required>
+        </div>
+        
+        <div class="row">
+          <div class="col-4">
+            <button type="submit" class="btn btn-primary btn-block">Registrar</button>
+          </div>
+        </div>
+      </form>
+
+      <a href="{% url 'login' %}" class="text-center">Ya tengo una membresía</a>
+    </div>
+  </div>
+</div>
+<!-- jQuery -->
+<script src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
+<!-- Bootstrap 4 -->
+<script src="{% static 'plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<!-- AdminLTE App -->
+<script src="{% static 'dist/js/adminlte.min.js' %}"></script>
+</body>
+</html>

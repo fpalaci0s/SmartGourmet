@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar/Editar Producto</title>
+    <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/adminlte.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+</head>
+<body class="hold-transition sidebar-mini sidebar-collapse">
+<div class="wrapper">
+    {% include 'base/navbar.html' %}
+    {% include 'base/sidebar.html' %}
+
+    <div class="content-wrapper">
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>{% if form.instance.pk %}Editar{% else %}Registrar{% endif %} Producto</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Inicio</a></li>
+                            <li class="breadcrumb-item"><a href="{% url 'listar_productos' %}">Productos</a></li>
+                            <li class="breadcrumb-item active">{% if form.instance.pk %}Editar{% else %}Registrar{% endif %}</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">Información del Producto</h3>
+                            </div>
+                            <form method="post" class="form-horizontal">
+                                {% csrf_token %}
+                                <div class="card-body">
+                                    {% for field in form %}
+                                    <div class="form-group row">
+                                        <label for="{{ field.id_for_label }}" class="col-sm-2 col-form-label">{{ field.label }}</label>
+                                        <div class="col-sm-10">
+                                            {{ field }}
+                                            {% if field.errors %}
+                                                {% for error in field.errors %}
+                                                    <div class="text-danger">{{ error }}</div>
+                                                {% endfor %}
+                                            {% endif %}
+                                            {% if field.help_text %}
+                                                <small class="form-text text-muted">{{ field.help_text }}</small>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-save"></i> Guardar
+                                    </button>
+                                    <a href="{% url 'listar_productos' %}" class="btn btn-secondary">
+                                        <i class="fas fa-arrow-left"></i> Volver
+                                    </a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<script src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'js/adminlte.min.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{% extends '../base/base.html' %}
+
+{% block title %} SmartGourmet {% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <h1 class="mb-4">Panel de Usuario</h1>
+    <div class="row">
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-info">
+                <div class="inner">
+                    <h3>{{ productos_count }}</h3>
+                    <p>Mis Productos</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <a href="{% url 'listar_productos' %}" class="small-box-footer">
+                    Ver más <i class="fas fa-arrow-circle-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    {% include 'base/contentUser.html' %}
+</div>
+{% endblock %}

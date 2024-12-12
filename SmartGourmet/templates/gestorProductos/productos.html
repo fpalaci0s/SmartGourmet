@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Productos</title>
+    <link rel="stylesheet" href="{% static 'plugins/datatables-bs4/css/dataTables.bootstrap4.min.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/datatables-responsive/css/responsive.bootstrap4.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/adminlte.min.css' %}">
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
+</head>
+<body class="hold-transition sidebar-mini sidebar-collapse">
+<div class="wrapper">
+
+    <!-- Importación de navbar -->
+    {% include 'base/navbar.html' %}
+
+    {% include 'base/sidebar.html' %}
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Encabezado de la página -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Lista de Productos</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contenido principal -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Productos Registrados</h3>
+                                <div class="card-tools">
+                                    <a href="{% url 'registrar_producto' %}" class="btn btn-success btn-sm">Agregar Producto</a>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <table id="productosTable" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre</th>
+                                            <th>Descripción</th>
+                                            <th>Precio</th>
+                                            <th>Categoría</th>
+                                            <th>Stock</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for producto in productos %}
+                                        <tr>
+                                            <td>{{ producto.nombre }}</td>
+                                            <td>{{ producto.descripcion }}</td>
+                                            <td>{{ producto.precio }}</td>
+                                            <td>{{ producto.categoria.nombre }}</td>
+                                            <td>{{ producto.stock }}</td>
+                                            <td>
+                                                <a href="{% url 'editar_producto' producto.pk %}" class="btn btn-warning btn-sm">Editar</a>
+                                                {% if user.is_superuser %}
+                                                    <a href="{% url 'eliminar_producto' producto.pk %}" class="btn btn-danger btn-sm">Eliminar</a>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /.contenido -->
+    </div>
+    <!-- /.content-wrapper -->
+
+</div>
+<!-- ./wrapper -->
+
+<!-- Scripts -->
+<script src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'plugins/datatables/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'plugins/datatables-bs4/js/dataTables.bootstrap4.min.js' %}"></script>
+<script src="{% static 'js/adminlte.min.js' %}"></script>
+
+<script>
+    $(document).ready(function() {
+        $('#productosTable').DataTable();
+    });
+</script>
+</body>
+</html>

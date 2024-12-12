@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Producto</title>
+    <!-- Estilos -->
+    <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/adminlte.min.css' %}">
+</head>
+<body class="hold-transition sidebar-mini sidebar-collapse">
+<div class="wrapper">
+
+    <!-- Navbar -->
+    {% include 'base/navbar.html' %}
+
+    <!-- Sidebar -->
+    {% include 'base/sidebar.html' %}
+
+    <!-- Content Wrapper. Contiene el contenido de la página -->
+    <div class="content-wrapper">
+
+        <!-- Encabezado de la página -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Editar Producto</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contenido principal -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="card card-primary">
+                    <!-- Formulario -->
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="id_nombre">Nombre</label>
+                                {{ form.nombre }}
+                            </div>
+                            <div class="form-group">
+                                <label for="id_descripcion">Descripción</label>
+                                {{ form.descripcion }}
+                            </div>
+                            <div class="form-group">
+                                <label for="id_precio">Precio</label>
+                                {{ form.precio }}
+                            </div>
+                            <div class="form-group">
+                                <label for="id_categoria">Categoría</label>
+                                {{ form.categoria }}
+                            </div>
+                            <div class="form-group">
+                                <label for="id_stock">Stock</label>
+                                {{ form.stock }}
+                            </div>
+                        </div>
+                        <!-- Botones -->
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">Actualizar</button>
+                            <a href="{% url 'listar_productos' %}" class="btn btn-secondary">Cancelar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <!-- /.contenido -->
+
+    </div>
+    <!-- /.content-wrapper -->
+
+<!-- ./wrapper -->
+
+<!-- Scripts -->
+<script src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'js/adminlte.min.js' %}"></script>
+</body>
+</html>
